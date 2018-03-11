@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Flask Based Music System Login - Final Project</title>
+
+  <meta charset="UTF-8">
+  <meta name="description" content="Most amazing Flask Based Music System">
+  <meta name="keywords" content="MP3, Music, Playlist, Awesome">
+  <meta name="author" content="Mark Dziwirek">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Link to W3 Schools W3.CSS project, lots of great CSS features here -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <!-- Link to the Font Awesome ICON Set-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Link to google fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+  <!-- Link to my static CSS file -->
+  <link rel="stylesheet" href="/static/style.css" type="text/css">
+
+  <!-- In Page static CSS data -->
+  <style>
+
+  .w3-tangerine 
+    {
+      font-family: "Tangerine", serif;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  {% block body %}
+  {% if session['logged_in'] %}
+  <p>You're logged in already!</p>
+  {% else %}
+ 
+ 
+  <form action="/login" method="POST">
+
+	 <div class="login">
+
+	 	 <div class="login-screen">
+	 		 
+       <div class="app-title">
+	 		   <h1>Mark's Tunes Music Portal</h1>
+			 </div>
+ 
+			 <div class="login-form">
+				 <div class="control-group">
+				   <input type="text" class="login-field" value="" placeholder="username" name="username">
+				   <label class="login-field-icon fui-user" for="login-name"></label>
+			    </div>
+ 
+			   <div class="control-group">
+				   <input type="password" class="login-field" value="" placeholder="password" name="password">
+				   <label class="login-field-icon fui-lock" for="login-pass"></label>
+				 </div>
+ 
+         <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			  </div>
+
+		  </div>
+
+	  </div>
+
+  </form>
+   
+ 
+{% endif %}
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+  {
+
+
+  });
+</script>
+
+</body>
+</html>

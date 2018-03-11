@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Playlists - Final Project</title>
+
+  <meta charset="UTF-8">
+  <meta name="description" content="Most amazing Flask Based Music System">
+  <meta name="keywords" content="MP3, Music, Playlist, Awesome">
+  <meta name="author" content="Mark Dziwirek">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Link to W3 Schools W3.CSS project, lots of great CSS features here -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <!-- Link to the Font Awesome ICON Set-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Link to google fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+  <!-- Link to my static CSS file -->
+  <link rel="stylesheet" href="/static/style.css" type="text/css">
+
+  <!-- In Page static CSS data -->
+  <style>
+
+  .w3-tangerine 
+    {
+      font-family: "Tangerine", serif;
+    }
+
+  .btn-group .button 
+    {
+      background-color: rgb(221,221,221); /* Gray */
+      border: 2px solid black;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      float: right;
+    }
+
+  .btn-group .button:hover 
+    {
+      background-color: rgb(58,153,217);
+    }
+
+  /************************************************************************************************/
+
+  table 
+    {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 60%;
+
+    }
+
+  td, th 
+    {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 10px;
+    }
+
+  tr:nth-child(even) 
+    {
+      background-color: #dddddd;
+    }  
+
+  </style>
+
+</head>
+
+
+<body style="background-color:rgb(58, 153, 217);">
+	    
+  <div class="w3-container">
+  
+    <h1 class="w3-center">Welcome {{user | safe}}</h1>
+
+    <div class="btn-group w3-right">
+      <a href="/logout" class="w3-button w3-border w3-hover-green"">Log Off</a>
+      <a href="/add_playlist" class="w3-button w3-border w3-hover-green"">Add Playlist</a>
+    </div>
+  
+  </div>
+
+
+<h2 align="center" style="margin-top: 100px">Your Playlist</h2>
+
+<table class="w3-table-all w3-hoverable">
+	<tr>
+    <th>Playlist ID</th>
+    <th>Playlist Name</th>
+    <th>Options</th>
+  </tr>
+
+{% for row in my_playlists %}
+  <tr>
+  	<td>{{row['playlist_id']}}</td>
+    <td>{{row['playlist_name']}}</td>
+    <td>
+      <p>
+        <a href = "/play_music/{{row['playlist_id']}}" style="text-decoration:none;"><i class="fa fa-play fa-2x" aria-hidden="true"></i> Click to play</a> &nbsp;
+        <a href = "/update_playlist/{{row['playlist_id']}}" style="text-decoration:none;"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Click to edit</a> &nbsp;
+        <a href = "/delete_playlist/{{row['playlist_id']}}" style="text-decoration:none;"><i class="fa fa-trash fa-2x" aria-hidden="true"></i> Delete Playlist</a>
+      </p>
+    </td>
+  </tr>
+{% endfor %}
+
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+  {
+
+
+  });
+</script>
+
+</body>
+</html>
