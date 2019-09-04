@@ -4,7 +4,7 @@ Author      : Mark Dziwirek
 Email       : marekdz@gmail.com
 Date        : 2018-3-10
 
-Description : 
+Description : Flask Webb App
 
   SQlite Database DDL DB Creation Script 
 
